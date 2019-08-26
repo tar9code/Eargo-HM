@@ -1,0 +1,11 @@
+select Page, SUM(value) as counts
+from
+(
+  select Page, value
+  from sql_test_a
+  unpivot
+  (
+    value for Page in (HOME_PAGE, PRODUCT_PAGE, WARRANTY_PAGE)
+  ) unpiv
+) src
+GROUP BY PAGE

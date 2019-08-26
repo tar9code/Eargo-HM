@@ -1,0 +1,19 @@
+CREATE TABLE sql_test_a 
+( 
+    ID            INT(6), 
+    HOME_PAGE     INT(6), 
+    PRODUCT_PAGE  INT(6),
+    WARRANTY_PAGE INT(6)
+); 
+
+INSERT INTO sql_test_a (
+  ID, HOME_PAGE, PRODUCT_PAGE, WARRANTY_PAGE
+) VALUES 
+('1', '1', '1', '1'),
+('2', '1', '1', '0'),
+('3', '1', '0', '1'),
+('4', '1', '0', '0'),
+('5', '0', '1', '1'),
+('6', '0', '1', '0'),
+('7', '0', '0', '1'),
+('8', '0', '0', '0');
