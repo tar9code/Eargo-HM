@@ -1,0 +1,3 @@
+To tests run, just run Test.java
+
+MakeChange.java also has a main method with the tests, but no checking is done to see if they are correct.
