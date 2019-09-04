@@ -45,6 +45,27 @@ public class StockPrices {
 	}
 	
 	/**
+	 * Takes the list of stocks and returns the days to buy and sell with the most profit 
+	 * - with only buying and selling once
+	 * This is a rework so that complexity is O(n) instead of O(n^2) that BestDay and BestOfDay provide
+	 */
+	public void findBestDay() {
+		int minVal = tenDayStocks.get(0);
+		int profit = 0;
+		for (int i = 1; i < tenDayStocks.size(); i++) {
+			profit = Math.max(profit, tenDayStocks.get(i) - minVal);
+			minVal = Math.min(minVal, tenDayStocks.get(i));
+		}
+		
+		// the plus 1 is a offset (otherwise day 0 exists)
+		int minDay = tenDayStocks.indexOf(minVal) + 1;
+		int maxDay = tenDayStocks.indexOf(minVal + profit) + 1;
+		
+		System.out.println("best2");
+		System.out.println(profit + " if you buy on day " + minDay + " and sell on day " + maxDay);
+	}
+	
+	/**
 	 * Find best sell price of each day in tenDayStocks
 	 * @return
 	 */
@@ -96,6 +117,7 @@ public class StockPrices {
 		System.out.println(stocks);
 		StockPrices prices = new StockPrices(stocks);
 		prices.BestDay();
+		prices.findBestDay();
 	}
 	
 	public static void test2() {
@@ -110,5 +132,6 @@ public class StockPrices {
 		System.out.println(stocks);
 		StockPrices prices = new StockPrices(stocks);
 		prices.BestDay();
+		prices.findBestDay();
 	}
 }
